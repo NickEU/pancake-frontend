@@ -19,7 +19,8 @@ const Menu = (props) => {
   const cakePriceUsd = usePriceCakeBusd()
   const { currentLanguage, setLanguage, t } = useTranslation()
   const { pathname } = useRouter()
-  const [showPhishingWarningBanner] = usePhishingBannerManager()
+  let [showPhishingWarningBanner] = usePhishingBannerManager()
+  showPhishingWarningBanner = false
 
   const menuItems = useMenuItems()
 
@@ -45,11 +46,11 @@ const Menu = (props) => {
       setLang={setLanguage}
       cakePriceUsd={cakePriceUsd.toNumber()}
       links={menuItems}
-      subLinks={activeMenuItem?.hideSubNav ? [] : activeMenuItem?.items}
+      subLinks={[]}
       footerLinks={footerLinks(t)}
       activeItem={activeMenuItem?.href}
       activeSubItem={activeSubMenuItem?.href}
-      buyCakeLabel={t('Buy CAKE')}
+      buyCakeLabel={t('Buy RIDI')}
       {...props}
     />
   )
