@@ -37,21 +37,14 @@ const Page: React.FC<
     noMinHeight?: boolean
     helpUrl?: string
   }
-> = ({
-  children,
-  removePadding = false,
-  hideFooterOnDesktop = false,
-  noMinHeight = false,
-  helpUrl = EXCHANGE_DOCS_URLS,
-  ...props
-}) => {
+> = ({ children, removePadding = false, noMinHeight = false, helpUrl = EXCHANGE_DOCS_URLS, ...props }) => {
   return (
     <>
       <PageMeta />
       <StyledPage $removePadding={removePadding} $noMinHeight={noMinHeight} {...props}>
         {children}
         <Flex flexGrow={1} />
-        <Box display={['block', null, null, hideFooterOnDesktop ? 'none' : 'block']} width="100%">
+        <Box display={['block', null, null, 'none']} width="100%">
           <Footer helpUrl={helpUrl} />
         </Box>
       </StyledPage>

@@ -69,7 +69,7 @@ const UserMenu = () => {
           isWrongNetwork={isWrongNetwork}
           onPresentWalletModal={onClickWalletMenu}
         />
-        <UserMenuItem as="button" disabled={isWrongNetwork} onClick={onPresentTransactionModal}>
+        {/* <UserMenuItem as="button" disabled={isWrongNetwork} onClick={onPresentTransactionModal}>
           {t('Recent Transactions')}
           {hasPendingTransactions && <RefreshIcon spin />}
         </UserMenuItem>
@@ -88,7 +88,7 @@ const UserMenu = () => {
             {t('Disconnect')}
             <LogoutIcon />
           </Flex>
-        </UserMenuItem>
+        </UserMenuItem> */}
       </>
     )
   }
