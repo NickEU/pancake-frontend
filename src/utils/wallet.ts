@@ -8,11 +8,11 @@ import { nodes } from './getRpcUrl'
 
 const NETWORK_CONFIG = {
   [ChainId.MAINNET]: {
-    name: 'BNB Smart Chain Mainnet',
+    name: 'Fantom Opera',
     scanURL: BASE_BSC_SCAN_URLS[ChainId.MAINNET],
   },
   [ChainId.TESTNET]: {
-    name: 'BNB Smart Chain Testnet',
+    name: 'Fantom Testnet',
     scanURL: BASE_BSC_SCAN_URLS[ChainId.TESTNET],
   },
 }
@@ -63,7 +63,7 @@ export const setupNetwork = async (externalProvider?: ExternalProvider) => {
       return false
     }
   } else {
-    console.error("Can't setup the BSC network on metamask because window.ethereum is undefined")
+    console.error("Can't setup the Fantom network on metamask because window.ethereum is undefined")
     return false
   }
 }
