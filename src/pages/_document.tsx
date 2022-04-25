@@ -37,9 +37,6 @@ class MyDocument extends Document {
           {nodes.map((node) => (
             <link key={node} rel="preconnect" href={node} />
           ))}
-          {process.env.NEXT_PUBLIC_NODE_PRODUCTION && (
-            <link rel="preconnect" href={process.env.NEXT_PUBLIC_NODE_PRODUCTION} />
-          )}
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&amp;display=swap" rel="stylesheet" />
           <link rel="shortcut icon" href="/favicon.ico" />
