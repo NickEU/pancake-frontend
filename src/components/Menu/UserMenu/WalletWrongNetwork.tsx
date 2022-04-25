@@ -28,11 +28,9 @@ const WalletWrongNetwork: React.FC<WalletWrongNetworkProps> = ({ onDismiss }) =>
   return (
     <>
       <Text mb="24px">{t('You’re connected to the wrong network.')}</Text>
-      {connector instanceof InjectedConnector && (
-        <Button onClick={handleSwitchNetwork} mb="24px">
-          {t('Switch Network')}
-        </Button>
-      )}
+      <Button onClick={handleSwitchNetwork} mb="24px">
+        {t('Switch Network')}
+      </Button>
       <StyledLink href="https://docs.pancakeswap.finance/get-started/connection-guide" external>
         <Button width="100%" variant="secondary">
           {t('Learn How')}
