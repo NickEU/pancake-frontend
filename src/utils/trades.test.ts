@@ -1,4 +1,5 @@
-import { Trade, Route, Token, ChainId, Pair, TokenAmount, JSBI, TradeType } from '@pancakeswap/sdk'
+import { Trade, Route, Token, Pair, TokenAmount, JSBI, TradeType } from '@pancakeswap/sdk'
+import { ChainId } from 'config/constants/networks'
 import { BETTER_TRADE_LESS_HOPS_THRESHOLD } from 'config/constants'
 import { isTradeBetter } from './trades'
 

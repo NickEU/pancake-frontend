@@ -1,6 +1,6 @@
-import { ChainId } from '@pancakeswap/sdk'
 import BigNumber from 'bignumber.js/bignumber'
 import { BIG_TEN } from 'utils/bigNumber'
+import { ChainId } from './constants/networks'
 
 BigNumber.config({
   EXPONENTIAL_AT: 1000,

@@ -1,6 +1,5 @@
-import { ChainId } from '@pancakeswap/sdk'
 import getLpAddress from 'utils/getLpAddress'
-import { CHAIN_ID } from './networks'
+import { CHAIN_ID, ChainId } from './networks'
 import tokens from './tokens'
 import { FarmAuctionBidderConfig } from './types'
 

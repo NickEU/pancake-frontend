@@ -1,6 +1,7 @@
-import { ChainId, JSBI, Percent, Token } from '@pancakeswap/sdk'
+import { JSBI, Percent, Token } from '@pancakeswap/sdk'
 import { BigNumber } from '@ethersproject/bignumber'
 import { mainnetTokens, testnetTokens } from './tokens'
+import { ChainId } from './networks'
 
 export const ROUTER_ADDRESS = {
   [ChainId.MAINNET]: '0xd841f16DB22E02e551D166f63e06C60f67395deb',

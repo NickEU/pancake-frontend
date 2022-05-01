@@ -1,5 +1,4 @@
 import { nanoid } from '@reduxjs/toolkit'
-import { ChainId } from '@pancakeswap/sdk'
 import { TokenList } from '@uniswap/token-lists'
 import { useCallback } from 'react'
 import { useDispatch } from 'react-redux'
@@ -8,6 +7,7 @@ import { AppDispatch } from '../state'
 import { fetchTokenList } from '../state/lists/actions'
 import resolveENSContentHash from '../utils/ENS/resolveENSContentHash'
 import useWeb3Provider from './useActiveWeb3React'
+import { ChainId } from '../config/constants/networks'
 
 function useFetchListCallback(): (listUrl: string, sendDispatch?: boolean) => Promise<TokenList> {
   const { library } = useWeb3Provider()

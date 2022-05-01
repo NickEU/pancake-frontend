@@ -1,4 +1,5 @@
-import { Token, Pair, ChainId } from '@pancakeswap/sdk'
+import { Token, Pair } from '@pancakeswap/sdk'
+import { ChainId } from 'config/constants/networks'
 import { isAddress } from 'utils'
 
 const getLpAddress = (token1: string | Token, token2: string | Token) => {
