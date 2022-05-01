@@ -37,28 +37,13 @@ const ColoredIconButton = styled(IconButton)`
   color: ${({ theme }) => theme.colors.textSubtle};
 `
 
-const CurrencyInputHeader: React.FC<Props> = ({
-  title,
-  subtitle,
-  setIsChartDisplayed,
-  isChartDisplayed,
-  hasAmount,
-  onRefreshPrice,
-}) => {
+const CurrencyInputHeader: React.FC<Props> = ({ title, subtitle, hasAmount, onRefreshPrice }) => {
   const [expertMode] = useExpertModeManager()
-  const toggleChartDisplayed = () => {
-    setIsChartDisplayed((currentIsChartDisplayed) => !currentIsChartDisplayed)
-  }
   const [onPresentTransactionsModal] = useModal(<TransactionsModal />)
 
   return (
     <CurrencyInputContainer>
       <Flex width="100%" alignItems="center" justifyContent="space-between">
-        {setIsChartDisplayed && (
-          <ColoredIconButton onClick={toggleChartDisplayed} variant="text" scale="sm">
-            {isChartDisplayed ? <ChartDisableIcon color="textSubtle" /> : <ChartIcon width="24px" color="textSubtle" />}
-          </ColoredIconButton>
-        )}
         <Flex flexDirection="column" alignItems="flex-end" width="100%" mr={18}>
           <Heading as="h2">{title}</Heading>
         </Flex>

@@ -93,7 +93,7 @@ export default function Swap() {
   const router = useRouter()
   const loadedUrlParams = useDefaultsFromURLSearch()
   const { t } = useTranslation()
-  const { isMobile } = useMatchBreakpoints()
+  const isMobile = true
   const [isChartExpanded, setIsChartExpanded] = useState(false)
   const [userChartPreference, setUserChartPreference] = useExchangeChartManager(isMobile)
   const [isChartDisplayed, setIsChartDisplayed] = useState(userChartPreference)
