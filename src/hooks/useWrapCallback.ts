@@ -1,4 +1,5 @@
-import { Currency, currencyEquals, ETHER, WETH } from '@pancakeswap/sdk'
+import { Currency, currencyEquals } from '@pancakeswap/sdk'
+import { WETH, ETHER } from 'config/constants/networks'
 import { useMemo } from 'react'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import { useTranslation } from 'contexts/Localization'
@@ -50,13 +51,13 @@ export default function useWrapCallback(
                   const txReceipt = await callWithGasPrice(wbnbContract, 'deposit', undefined, {
                     value: `0x${inputAmount.raw.toString(16)}`,
                   })
-                  addTransaction(txReceipt, { summary: `Wrap ${inputAmount.toSignificant(6)} BNB to WBNB` })
+                  addTransaction(txReceipt, { summary: `Wrap ${inputAmount.toSignificant(6)} FTM to WFTM` })
                 } catch (error) {
                   console.error('Could not deposit', error)
                 }
               }
             : undefined,
-        inputError: sufficientBalance ? undefined : t('Insufficient BNB balance'),
+        inputError: sufficientBalance ? undefined : t('Insufficient FTM balance'),
       }
     }
     if (currencyEquals(WETH[chainId], inputCurrency) && outputCurrency === ETHER) {
@@ -69,13 +70,13 @@ export default function useWrapCallback(
                   const txReceipt = await callWithGasPrice(wbnbContract, 'withdraw', [
                     `0x${inputAmount.raw.toString(16)}`,
                   ])
-                  addTransaction(txReceipt, { summary: `Unwrap ${inputAmount.toSignificant(6)} WBNB to BNB` })
+                  addTransaction(txReceipt, { summary: `Unwrap ${inputAmount.toSignificant(6)} WFTM to FTM` })
                 } catch (error) {
                   console.error('Could not withdraw', error)
                 }
               }
             : undefined,
-        inputError: sufficientBalance ? undefined : t('Insufficient WBNB balance'),
+        inputError: sufficientBalance ? undefined : t('Insufficient WFTM balance'),
       }
     }
     return NOT_APPLICABLE

@@ -4,22 +4,24 @@ import tokens from 'config/constants/tokens'
 import { FetchStatus } from 'config/constants/types'
 import { useTranslation } from 'contexts/Localization'
 import useAuth from 'hooks/useAuth'
-import useTokenBalance, { useGetBnbBalance } from 'hooks/useTokenBalance'
+import useTokenBalance, { useGetFtmBalance } from 'hooks/useTokenBalance'
 
 import { getBscScanLink } from 'utils'
 import { formatBigNumber, getFullDisplayBalance } from 'utils/formatBalance'
 import CopyAddress from './CopyAddress'
 
 interface WalletInfoProps {
-  hasLowBnbBalance: boolean
+  hasLowFtmBalance: boolean
   onDismiss: InjectedModalProps['onDismiss']
 }
 
-const WalletInfo: React.FC<WalletInfoProps> = ({ hasLowBnbBalance, onDismiss }) => {
+const WalletInfo: React.FC<WalletInfoProps> = ({ hasLowFtmBalance, onDismiss }) => {
   const { t } = useTranslation()
   const { account } = useWeb3React()
-  const { balance, fetchStatus } = useGetBnbBalance()
-  const { balance: cakeBalance, fetchStatus: cakeFetchStatus } = useTokenBalance(tokens.cake.address)
+  const { balance: ftmBalance, fetchStatus: ftmFetchStatus } = useGetFtmBalance()
+  const { balance: wftmBalance, fetchStatus: wftmFetchStatus } = useTokenBalance(tokens.wftm.address)
+  const { balance: ridiBalance, fetchStatus: ridiFetchStatus } = useTokenBalance(tokens.ridi.address)
+  const { balance: usdtBalance, fetchStatus: usdtFetchStatus } = useTokenBalance(tokens.usdt.address)
   const { logout } = useAuth()
 
   const handleLogout = () => {
@@ -33,28 +35,44 @@ const WalletInfo: React.FC<WalletInfoProps> = ({ hasLowBnbBalance, onDismiss }) 
         {t('Your Address')}
       </Text>
       <CopyAddress account={account} mb="24px" />
-      {hasLowBnbBalance && (
+      {hasLowFtmBalance && (
         <Message variant="warning" mb="24px">
           <Box>
-            <Text fontWeight="bold">{t('BNB Balance Low')}</Text>
-            <Text as="p">{t('You need BNB for transaction fees.')}</Text>
+            <Text fontWeight="bold">{t('FTM Balance Low')}</Text>
+            <Text as="p">{t('You need FTM for transaction fees.')}</Text>
           </Box>
         </Message>
       )}
       <Flex alignItems="center" justifyContent="space-between">
-        <Text color="textSubtle">{t('BNB Balance')}</Text>
-        {fetchStatus !== FetchStatus.Fetched ? (
+        <Text color="textSubtle">{t('FTM Balance')}</Text>
+        {ftmFetchStatus !== FetchStatus.Fetched ? (
           <Skeleton height="22px" width="60px" />
         ) : (
-          <Text>{formatBigNumber(balance, 6)}</Text>
+          <Text>{formatBigNumber(ftmBalance, 3)}</Text>
+        )}
+      </Flex>
+      <Flex alignItems="center" justifyContent="space-between">
+        <Text color="textSubtle">{t('WFTM Balance')}</Text>
+        {wftmFetchStatus !== FetchStatus.Fetched ? (
+          <Skeleton height="22px" width="60px" />
+        ) : (
+          <Text>{getFullDisplayBalance(wftmBalance, 18, 3)}</Text>
+        )}
+      </Flex>
+      <Flex alignItems="center" justifyContent="space-between">
+        <Text color="textSubtle">{t('USDT Balance')}</Text>
+        {usdtFetchStatus !== FetchStatus.Fetched ? (
+          <Skeleton height="22px" width="60px" />
+        ) : (
+          <Text>{getFullDisplayBalance(usdtBalance, 18, 3)}</Text>
         )}
       </Flex>
       <Flex alignItems="center" justifyContent="space-between" mb="24px">
-        <Text color="textSubtle">{t('CAKE Balance')}</Text>
-        {cakeFetchStatus !== FetchStatus.Fetched ? (
+        <Text color="textSubtle">{t('RIDI Balance')}</Text>
+        {ridiFetchStatus !== FetchStatus.Fetched ? (
           <Skeleton height="22px" width="60px" />
         ) : (
-          <Text>{getFullDisplayBalance(cakeBalance, 18, 3)}</Text>
+          <Text>{getFullDisplayBalance(ridiBalance, 18, 3)}</Text>
         )}
       </Flex>
       <Flex alignItems="center" justifyContent="end" mb="24px">

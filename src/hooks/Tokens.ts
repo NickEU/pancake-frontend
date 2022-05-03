@@ -1,10 +1,10 @@
 /* eslint-disable no-param-reassign */
 import { arrayify } from '@ethersproject/bytes'
 import { parseBytes32String } from '@ethersproject/strings'
-import { Currency, currencyEquals, ETHER, Token } from '@pancakeswap/sdk'
+import { Currency, currencyEquals, Token } from '@pancakeswap/sdk'
 import { createSelector } from '@reduxjs/toolkit'
 import { GELATO_NATIVE } from 'config/constants'
-import { CHAIN_ID } from 'config/constants/networks'
+import { CHAIN_ID, ETHER } from 'config/constants/networks'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
@@ -169,7 +169,7 @@ export function useToken(tokenAddress?: string): Token | undefined | null {
 }
 
 export function useCurrency(currencyId: string | undefined): Currency | Token | null | undefined {
-  const isBNB = currencyId?.toUpperCase() === 'BNB' || currencyId?.toLowerCase() === GELATO_NATIVE
+  const isBNB = currencyId?.toUpperCase() === 'FTM' || currencyId?.toLowerCase() === GELATO_NATIVE
   const token = useToken(isBNB ? undefined : currencyId)
   return isBNB ? ETHER : token
 }

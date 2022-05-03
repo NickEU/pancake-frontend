@@ -1,4 +1,5 @@
-import { Currency, CurrencyAmount, ETHER, JSBI, Token, TokenAmount } from '@pancakeswap/sdk'
+import { Currency, CurrencyAmount, JSBI, Token, TokenAmount } from '@pancakeswap/sdk'
+import { ETHER } from 'config/constants/networks'
 import { useMemo } from 'react'
 import { useWeb3React } from '@web3-react/core'
 import ERC20_INTERFACE from 'config/abi/erc20'
