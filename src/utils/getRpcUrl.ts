@@ -1,14 +1,7 @@
 import sample from 'lodash/sample'
 
-if (
-  process.env.NODE_ENV !== 'production' &&
-  (!process.env.NEXT_PUBLIC_NODE_1 || !process.env.NEXT_PUBLIC_NODE_2 || !process.env.NEXT_PUBLIC_NODE_3)
-) {
-  throw Error('One base RPC URL is undefined')
-}
-
-// Array of available nodes to connect to
-export const nodes = [process.env.PROPER_RPC_NODE]
+// // Array of available nodes to connect to
+export const nodes = [process.env.NEXT_PUBLIC_PROPER_RPC_NODE]
 const getNodeUrl = () => {
   return sample(nodes)
 }
