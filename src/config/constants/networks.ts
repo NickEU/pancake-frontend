@@ -2,20 +2,23 @@ import { Token, ETHER, WETH } from '@pancakeswap/sdk'
 
 export const CHAIN_ID = process.env.NEXT_PUBLIC_CHAIN_ID
 
+const chainId: number = +process.env.NEXT_PUBLIC_CHAIN_ID
+const decimals = 18
+
 export enum ChainId {
-  MAINNET = 4002,
+  MAINNET = chainId,
   TESTNET = 97,
 }
 
-WETH[4002] = new Token(
-  4002,
-  '0xf1277d1Ed8AD466beddF92ef448A132661956621',
-  18,
-  'WFTM',
-  'WFTM',
-  'https://fantom.foundation/defi/',
+WETH[chainId] = new Token(
+  chainId,
+  process.env.NEXT_PUBLIC_CONTRACT_ADDRESS_ETHER,
+  decimals,
+  process.env.NEXT_PUBLIC_ETHER_SYMBOL,
+  process.env.NEXT_PUBLIC_ETHER_NAME,
+  process.env.NEXT_PUBLIC_ETHER_URL,
 )
-ETHER.name = 'FTM'
-ETHER.symbol = 'FTM'
+ETHER.name = process.env.NEXT_PUBLIC_ETHER_NAME
+ETHER.symbol = process.env.NEXT_PUBLIC_ETHER_SYMBOL
 
 export { WETH, ETHER }
