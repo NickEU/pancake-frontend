@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import { formatUnits } from '@ethersproject/units'
-import { CurrencyAmount, Price, Token, TokenAmount, JSBI, ETHER } from '@pancakeswap/sdk'
+import { CurrencyAmount, Price, Token, TokenAmount, JSBI } from '@pancakeswap/sdk'
+import { ETHER } from 'config/constants/networks'
 import { BigNumber } from '@ethersproject/bignumber'
 import { useTradeExactIn } from 'hooks/Trades'
 import tryParseAmount from 'utils/tryParseAmount'
