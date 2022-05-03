@@ -21,7 +21,7 @@ import { useGetBnbBalance } from 'hooks/useTokenBalance'
 import { useTranslation } from 'contexts/Localization'
 import { nftsBaseUrl } from 'views/Nft/market/constants'
 import { FetchStatus } from 'config/constants/types'
-import WalletModal, { WalletView, LOW_BNB_BALANCE } from './WalletModal'
+import WalletModal, { WalletView, LOW_FTM_BALANCE } from './WalletModal'
 import ProfileUserMenuItem from './ProfileUserMenutItem'
 import WalletUserMenuItem from './WalletUserMenuItem'
 
@@ -38,7 +38,7 @@ const UserMenu = () => {
   const [onPresentWrongNetworkModal] = useModal(<WalletModal initialView={WalletView.WRONG_NETWORK} />)
   const hasProfile = isInitialized && !!profile
   const avatarSrc = profile?.nft?.image?.thumbnail
-  const hasLowBnbBalance = fetchStatus === FetchStatus.Fetched && balance.lte(LOW_BNB_BALANCE)
+  const hasLowBnbBalance = fetchStatus === FetchStatus.Fetched && balance.lte(LOW_FTM_BALANCE)
   const [userMenuText, setUserMenuText] = useState<string>('')
   const [userMenuVariable, setUserMenuVariable] = useState<UserMenuVariant>('default')
   const isWrongNetwork: boolean = error && error instanceof UnsupportedChainIdError
