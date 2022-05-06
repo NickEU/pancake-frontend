@@ -7,7 +7,7 @@ const Stats = () => {
 
   return (
     <Flex justifyContent="center" alignItems="center" flexDirection="column">
-      <GradientLogo height="48px" width="48px" mb="24px" />
+      {/* <GradientLogo height="48px" width="48px" mb="24px" /> */}
       <Heading textAlign="center" scale="xl">
         {t('Automated market makers for the win!')}
       </Heading>
