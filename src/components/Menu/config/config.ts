@@ -41,8 +41,8 @@ const config: (t: ContextApi['t'], languageCode?: string) => ConfigMenuItemsType
     items: [],
   },
   {
-    label: t('Farms'),
-    href: '/farms',
+    label: t('Farms(WIP)'),
+    href: '#',
     icon: EarnIcon,
     fillIcon: EarnFillIcon,
     items: [],

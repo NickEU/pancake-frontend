@@ -1,6 +1,6 @@
-import { ChainId, Token } from '@pancakeswap/sdk'
+import { Token } from '@pancakeswap/sdk'
 import { serializeToken } from 'state/user/hooks/helpers'
-import { CHAIN_ID } from './networks'
+import { CHAIN_ID, ChainId } from './networks'
 import { SerializedToken } from './types'
 
 const { MAINNET, TESTNET } = ChainId
@@ -14,14 +14,21 @@ const defineTokens = <T extends TokenList>(t: T) => t
 export const mainnetTokens = defineTokens({
   wbnb: new Token(
     MAINNET,
-    '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
+    '0xf1277d1Ed8AD466beddF92ef448A132661956621',
     18,
-    'WBNB',
-    'Wrapped BNB',
-    'https://www.binance.com/',
+    'WFTM',
+    'Wrapped FTM',
+    'https://fantom.foundation/defi/',
   ),
   // bnb here points to the wbnb contract. Wherever the currency BNB is required, conditional checks for the symbol 'BNB' can be used
-  bnb: new Token(MAINNET, '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18, 'BNB', 'BNB', 'https://www.binance.com/'),
+  bnb: new Token(
+    MAINNET,
+    '0xf1277d1Ed8AD466beddF92ef448A132661956621',
+    18,
+    'FTM',
+    'FTM',
+    'https://fantom.foundation/defi/',
+  ),
   cake: new Token(
     MAINNET,
     '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
@@ -29,6 +36,31 @@ export const mainnetTokens = defineTokens({
     'CAKE',
     'PancakeSwap Token',
     'https://pancakeswap.finance/',
+  ),
+  usdt: new Token(MAINNET, '0xd9AEcdf2224BBB158716Cc73191DE35d9ef0f487', 18, 'USDT', 'USDT', 'https://tether.to/'),
+  ftm: new Token(
+    MAINNET,
+    '0xf1277d1Ed8AD466beddF92ef448A132661956621',
+    18,
+    'FTM',
+    'FTM',
+    'https://fantom.foundation/defi/',
+  ),
+  wftm: new Token(
+    MAINNET,
+    '0xf1277d1Ed8AD466beddF92ef448A132661956621',
+    18,
+    'WFTM',
+    'Wrapped FTM',
+    'https://fantom.foundation/defi/',
+  ),
+  ridi: new Token(
+    MAINNET,
+    '0x50Ae37732EC792A05D7e72c6Ad459D7F23DB0c7d',
+    18,
+    'RIDI',
+    'Ridiculous Finance Token',
+    'https://fantom.foundation/defi/',
   ),
   gmi: new Token(MAINNET, '0x93D8d25E3C9A847a5Da79F79ecaC89461FEcA846', 18, 'GMI', 'Gamifi', 'https://gamifi.gg/'),
   tlos: new Token(MAINNET, '0xb6C53431608E626AC81a9776ac3e999c5556717c', 18, 'TLOS', 'Telos', 'https://www.telos.net/'),
@@ -82,14 +114,6 @@ export const mainnetTokens = defineTokens({
     'DAI',
     'Dai Stablecoin',
     'https://www.makerdao.com/',
-  ),
-  usdt: new Token(
-    MAINNET,
-    '0x55d398326f99059fF775485246999027B3197955',
-    18,
-    'USDT',
-    'Tether USD',
-    'https://tether.to/',
   ),
   btcb: new Token(
     MAINNET,
@@ -2050,11 +2074,28 @@ export const mainnetTokens = defineTokens({
 export const testnetTokens = defineTokens({
   wbnb: new Token(
     TESTNET,
-    '0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd',
+    '0xf1277d1Ed8AD466beddF92ef448A132661956621',
     18,
     'WBNB',
     'Wrapped BNB',
     'https://www.binance.com/',
+  ),
+  usdt: new Token(MAINNET, '0xd9AEcdf2224BBB158716Cc73191DE35d9ef0f487', 18, 'USDT', 'USDT', 'https://tether.to/'),
+  wftm: new Token(
+    MAINNET,
+    '0xf1277d1Ed8AD466beddF92ef448A132661956621',
+    18,
+    'WFTM',
+    'Wrapped FTM',
+    'https://fantom.foundation/defi/',
+  ),
+  ridi: new Token(
+    MAINNET,
+    '0x50Ae37732EC792A05D7e72c6Ad459D7F23DB0c7d',
+    18,
+    'RIDI',
+    'Ridiculous Finance Token',
+    'https://fantom.foundation/defi/',
   ),
   cake: new Token(
     TESTNET,

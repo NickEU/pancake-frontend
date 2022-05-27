@@ -17,7 +17,7 @@ import masterChef from 'config/abi/masterchef.json'
 import { getAddress, getMasterChefAddress } from 'utils/addressHelpers'
 import { getPoolApr } from 'utils/apr'
 import { BIG_ZERO } from 'utils/bigNumber'
-import { getCakeContract } from 'utils/contractHelpers'
+import { getRidiContract } from 'utils/contractHelpers'
 import { getBalanceNumber } from 'utils/formatBalance'
 import { simpleRpcProvider } from 'utils/providers'
 import { multicallv2 } from 'utils/multicall'
@@ -73,7 +73,7 @@ const initialState: PoolsState = {
 // Thunks
 const cakePool = poolsConfig.find((pool) => pool.sousId === 0)
 const cakePoolAddress = getAddress(cakePool.contractAddress)
-const cakeContract = getCakeContract()
+const cakeContract = getRidiContract()
 export const fetchCakePoolPublicDataAsync = () => async (dispatch, getState) => {
   const prices = getTokenPricesFromFarm(getState().farms.data)
   const stakingTokenAddress = cakePool.stakingToken.address ? cakePool.stakingToken.address.toLowerCase() : null
@@ -115,7 +115,7 @@ export const fetchCakePoolUserDataAsync = (account: string) => async (dispatch) 
   const cakeContractCalls = [allowanceCall, balanceOfCall]
   const [[allowance], [stakingTokenBalance]] = await multicallv2(cakeAbi, cakeContractCalls)
 
-  const masterChefCalls = ['pendingCake', 'userInfo'].map((method) => ({
+  const masterChefCalls = ['pendingRidi', 'userInfo'].map((method) => ({
     address: getMasterChefAddress(),
     name: method,
     params: ['0', account],

@@ -1,9 +1,10 @@
-import { Token, ChainId } from '@pancakeswap/sdk'
+import { Token } from '@pancakeswap/sdk'
 import tokens from './tokens'
 import farms from './farms'
 import { Ifo } from './types'
+import { ChainId } from './networks'
 
-export const cakeBnbLpToken = new Token(ChainId.MAINNET, farms[1].lpAddresses[ChainId.MAINNET], 18, farms[1].lpSymbol)
+export const cakeBnbLpToken = new Token(ChainId.MAINNET, '0xc81cB9EC8f91940353E52762714C1caFE261d0a3', 18, 'RIDILP')
 
 const ifos: Ifo[] = [
   {
