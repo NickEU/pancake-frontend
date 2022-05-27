@@ -39,9 +39,7 @@ function ConfirmationPendingContent({ pendingText }: { pendingText: string }) {
   const { t } = useTranslation()
   return (
     <Wrapper>
-      <ConfirmedIcon>
-        <Spinner />
-      </ConfirmedIcon>
+      <ConfirmedIcon>{/* <Spinner /> */}</ConfirmedIcon>
       <AutoColumn gap="12px" justify="center">
         <Text fontSize="20px">{t('Waiting For Confirmation')}</Text>
         <AutoColumn gap="12px" justify="center">
