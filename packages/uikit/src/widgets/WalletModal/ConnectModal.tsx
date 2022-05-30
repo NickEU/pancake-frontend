@@ -85,7 +85,7 @@ const ConnectModal: React.FC<Props> = ({ login, onDismiss = () => null, displayC
           </Text>
           <Button
             as="a"
-            href="https://github.com/NickEU/ridiculous-finance-readme/blob/main/wallet-creation-readme.md"
+            href="https://github.com/NickEU/ridi-user-manual"
             variant="subtle"
             width="100%"
             {...getExternalLinkProps()}

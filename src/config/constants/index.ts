@@ -4,8 +4,8 @@ import { mainnetTokens, testnetTokens } from './tokens'
 import { ChainId } from './networks'
 
 export const ROUTER_ADDRESS = {
-  [ChainId.MAINNET]: '0xd841f16DB22E02e551D166f63e06C60f67395deb',
-  [ChainId.TESTNET]: '0xd841f16DB22E02e551D166f63e06C60f67395deb',
+  [ChainId.MAINNET]: '0xc81cB9EC8f91940353E52762714C1caFE261d0a3',
+  [ChainId.TESTNET]: '0xc81cB9EC8f91940353E52762714C1caFE261d0a3',
 }
 
 // a list of tokens by chain
@@ -15,16 +15,7 @@ type ChainTokenList = {
 
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
-  [ChainId.MAINNET]: [
-    mainnetTokens.wbnb,
-    mainnetTokens.cake,
-    mainnetTokens.busd,
-    mainnetTokens.usdt,
-    mainnetTokens.btcb,
-    mainnetTokens.ust,
-    mainnetTokens.eth,
-    mainnetTokens.usdc,
-  ],
+  [ChainId.MAINNET]: [mainnetTokens.wftm, mainnetTokens.ridi, mainnetTokens.usdt],
   [ChainId.TESTNET]: [testnetTokens.wbnb, testnetTokens.cake, testnetTokens.busd],
 }
 
@@ -47,21 +38,21 @@ export const CUSTOM_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: To
 
 // used for display in the default list when adding liquidity
 export const SUGGESTED_BASES: ChainTokenList = {
-  [ChainId.MAINNET]: [mainnetTokens.busd, mainnetTokens.cake, mainnetTokens.btcb],
-  [ChainId.TESTNET]: [testnetTokens.wbnb, testnetTokens.cake, testnetTokens.busd],
+  [ChainId.MAINNET]: [mainnetTokens.wftm, mainnetTokens.ridi, mainnetTokens.usdt],
+  [ChainId.TESTNET]: [testnetTokens.wftm, testnetTokens.ridi, testnetTokens.usdt],
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
 export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
-  [ChainId.MAINNET]: [mainnetTokens.wbnb, mainnetTokens.dai, mainnetTokens.busd, mainnetTokens.usdt],
-  [ChainId.TESTNET]: [testnetTokens.wbnb, testnetTokens.cake, testnetTokens.busd],
+  [ChainId.MAINNET]: [mainnetTokens.ridi, mainnetTokens.wftm, mainnetTokens.usdt],
+  [ChainId.TESTNET]: [testnetTokens.ridi, testnetTokens.wftm, testnetTokens.usdt],
 }
 
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {
   [ChainId.MAINNET]: [
-    [mainnetTokens.cake, mainnetTokens.wbnb],
-    [mainnetTokens.busd, mainnetTokens.usdt],
-    [mainnetTokens.dai, mainnetTokens.usdt],
+    [mainnetTokens.wftm, mainnetTokens.ridi],
+    [mainnetTokens.usdt, mainnetTokens.wftm],
+    [mainnetTokens.usdt, mainnetTokens.ridi],
   ],
 }
 
@@ -82,7 +73,7 @@ export const ALLOWED_PRICE_IMPACT_LOW: Percent = new Percent(JSBI.BigInt(100), B
 export const ALLOWED_PRICE_IMPACT_MEDIUM: Percent = new Percent(JSBI.BigInt(300), BIPS_BASE) // 3%
 export const ALLOWED_PRICE_IMPACT_HIGH: Percent = new Percent(JSBI.BigInt(500), BIPS_BASE) // 5%
 // if the price slippage exceeds this number, force the user to type 'confirm' to execute
-export const PRICE_IMPACT_WITHOUT_FEE_CONFIRM_MIN: Percent = new Percent(JSBI.BigInt(1000), BIPS_BASE) // 10%
+export const PRICE_IMPACT_WITHOUT_FEE_CONFIRM_MIN: Percent = new Percent(JSBI.BigInt(9000), BIPS_BASE) // 90%
 // for non expert mode disable swaps above this
 export const BLOCKED_PRICE_IMPACT_NON_EXPERT: Percent = new Percent(JSBI.BigInt(1500), BIPS_BASE) // 15%
 

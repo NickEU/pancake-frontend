@@ -132,13 +132,13 @@ const Menu: React.FC<NavProps> = ({
           {banner && <TopBannerContainer height={topBannerHeight}>{banner}</TopBannerContainer>}
           <StyledNav>
             <Flex>
-              <Logo isDark={isDark} href={homeLink?.href ?? "/"} />
+              {/* <Logo isDark={isDark} href={homeLink?.href ?? "/"} /> */}
               {!isMobile && <MenuItems items={links} activeItem={activeItem} activeSubItem={activeSubItem} ml="24px" />}
             </Flex>
             <Flex alignItems="center" height="100%">
-              {!isMobile && !isMd && (
+              {false && !isMobile && !isMd && (
                 <Box mr="12px">
-                  <CakePrice showSkeleton={false} cakePriceUsd={cakePriceUsd} />
+                  <CakePrice cakePriceUsd={cakePriceUsd} />
                 </Box>
               )}
               <Box mt="4px">

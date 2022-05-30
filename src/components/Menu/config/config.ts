@@ -40,13 +40,13 @@ const config: (t: ContextApi['t'], languageCode?: string) => ConfigMenuItemsType
     fillIcon: EarnFillIcon,
     items: [],
   },
-  {
-    label: t('Farms'),
-    href: '/farms',
-    icon: EarnIcon,
-    fillIcon: EarnFillIcon,
-    items: [],
-  },
+  // {
+  //   label: t('Farms(WIP)'),
+  //   href: '#',
+  //   icon: EarnIcon,
+  //   fillIcon: EarnFillIcon,
+  //   items: [],
+  // },
   {
     label: t('Trading charts'),
     href: '/trading-charts',
@@ -54,13 +54,13 @@ const config: (t: ContextApi['t'], languageCode?: string) => ConfigMenuItemsType
     fillIcon: TrophyFillIcon,
     items: [],
   },
-  {
-    label: t('Portfolio'),
-    href: '/portfolio',
-    icon: TrophyIcon,
-    fillIcon: TrophyFillIcon,
-    items: [],
-  },
+  // {
+  //   label: t('Portfolio'),
+  //   href: '/portfolio',
+  //   icon: TrophyIcon,
+  //   fillIcon: TrophyFillIcon,
+  //   items: [],
+  // },
 ]
 
 export default config
