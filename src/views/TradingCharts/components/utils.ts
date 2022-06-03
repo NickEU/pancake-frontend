@@ -1,11 +1,11 @@
 export const candleTimePeriodToChartRefreshRate = (timePeriod: number) => {
   switch (timePeriod) {
-    case 1: // one minute candle, 5 sec chart refresh rate for debug purposes
-      return 5 * 1000
-    case 2:
-      return 15 * 1000
-    case 3:
+    case 1: // one minute candle, 60 sec chart refresh rate
       return 60 * 1000
+    case 2:
+      return 300 * 1000
+    case 3:
+      return 600 * 1000
     default:
       return 5 * 1000
   }
