@@ -1,6 +1,7 @@
 import { Text, Heading, ButtonMenu, ButtonMenuItem, Flex } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
 import { useEffect, useState } from 'react'
+import QuestionHelper from 'components/QuestionHelper'
 import PriceChart from './PriceChart'
 import useGoogleCharts from '../useGoogleCharts'
 import VolumeChart from './VolumeChart'
@@ -113,6 +114,12 @@ const TradingChart = ({ isMobile = false }) => {
                 <ButtonMenuItem as="button">{t('1 hour')}</ButtonMenuItem>
                 <ButtonMenuItem as="button">{t('1 day')}</ButtonMenuItem>
               </ButtonMenu>
+              <QuestionHelper
+                text={t(
+                  'Price chart tooltips show Low-High Open-Close prices. The trading data is taken from Gemini exchange.',
+                )}
+                ml="4px"
+              />
             </Flex>
             <PriceChart google={google} priceData={priceData} />
             <VolumeChart google={google} volumeData={volumeData} />
