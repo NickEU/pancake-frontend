@@ -15,6 +15,7 @@ export const ID: Language = { locale: 'id-ID', language: 'Bahasa Indonesia', cod
 export const IT: Language = { locale: 'it-IT', language: 'Italiano', code: 'it' }
 export const JA: Language = { locale: 'ja-JP', language: '日本語', code: 'ja' }
 export const KO: Language = { locale: 'ko-KR', language: '한국어', code: 'ko' }
+export const LV: Language = { locale: 'lv-LV', language: 'Latviski', code: 'lv' }
 export const NL: Language = { locale: 'nl-NL', language: 'Nederlands', code: 'nl' }
 export const PL: Language = { locale: 'pl-PL', language: 'Polski', code: 'pl' }
 export const PTBR: Language = { locale: 'pt-BR', language: 'Português (Brazil)', code: 'pt-br' }
@@ -31,7 +32,7 @@ export const ZHTW: Language = { locale: 'zh-TW', language: '繁體中文', code:
 
 export const languages = {
   'en-US': EN,
-  'ru-RU': RU,
+  'lv-LV': LV,
 }
 
 export const languageList = Object.values(languages)
