@@ -76,7 +76,7 @@ const ConfirmAddLiquidityModal: React.FC<InjectedModalProps & ConfirmAddLiquidit
         </Flex>
         <Row>
           <Text fontSize="24px">
-            {`${currencies[Field.CURRENCY_A]?.symbol}/${currencies[Field.CURRENCY_B]?.symbol} Pool Tokens`}
+            {`${currencies[Field.CURRENCY_A]?.symbol}/${currencies[Field.CURRENCY_B]?.symbol} LP Tokens`}
           </Text>
         </Row>
         <Text small textAlign="left" my="24px">
